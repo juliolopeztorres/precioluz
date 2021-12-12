@@ -1,0 +1,5 @@
+node_modules
+.idea
+test/Framework/Integration/cypress/screenshots
+test/Framework/Integration/cypress/videos
+coverage
