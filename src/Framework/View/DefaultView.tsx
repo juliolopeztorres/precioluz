@@ -128,6 +128,22 @@ const HomePage = () => {
   }
 
   const saveDataToState: (data: any & { indicator: { geos: LocationType[] } }) => void = (data) => {
+    const geos: LocationType[] = []
+    const geo_ids: number[] = []
+
+    for(let item of data.indicator.values) {
+      if (geo_ids.indexOf(item.geo_id) === -1) {
+        geo_ids.push(item.geo_id)
+
+        geos.push({
+          "geo_id": item.geo_id,
+          "geo_name": item.geo_name
+        })
+      }
+    }
+
+    data.indicator.geos = geos
+
     setPvpcData(data);
     setLocation(data.indicator.geos[0])
   }
